@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dungeon of Emyst</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: black;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    header {
+        text-align: center;
+        padding: 80px 20px;
+        background: radial-gradient(circle, #1a1a1a, #000);
+    }
+
+    h1 {
+        font-size: 3em;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        background: #111;
+        padding: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    nav a {
+        color: #ccc;
+        margin: 0 15px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: red;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .box {
+        background: #111;
+        padding: 15px;
+        border-left: 4px solid red;
+        margin-top: 15px;
+    }
+
+    .glitch {
+        animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px red; }
+        50% { text-shadow: -2px -2px purple; }
+        100% { text-shadow: 2px -2px red; }
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 1s;
+    }
+
+    .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        background: #000;
+        color: #666;
+    }
+
+    button {
+        background: red;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: darkred;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 class="glitch">THE DUNGEON OF EMYST</h1>
+    <p>You were never meant to escape.</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#mechanics">Mechanics</a>
+    <a href="#story">Story</a>
+    <a href="#ending">Ending</a>
+</nav>
+
+<section id="about" class="fade-in">
+    <h2>🕯️ Overview</h2>
+    <p>
+        A psychological horror survival game where safety is an illusion.
+        Every decision has consequences. Every moment is watched.
+    </p>
+</section>
+
+<section id="mechanics" class="fade-in">
+    <h2>⚙️ Core Mechanics</h2>
+
+    <ul>
+        <li>Unsafe Safe Zones</li>
+        <li>The Watcher System</li>
+        <li>Misery Merchant</li>
+        <li>Shadow Falcons</li>
+        <li>Risk vs Reward Gameplay</li>
+    </ul>
+
+    <div class="box">
+        <strong>Filit Flashlight:</strong><br>
+        Protects you… but drains your life.
+    </div>
+</section>
+
+<section id="story" class="fade-in">
+    <h2>📖 Story</h2>
+    <p>
+        You wake up in a living dungeon with no memory.
+        The deeper you go, the more it changes.
+        The more you fear… the stronger it becomes.
+    </p>
+</section>
+
+<section id="ending" class="fade-in">
+    <h2>🏁 Ending</h2>
+    <p>After defeating Ladow Jade, you escape… or so you think.</p>
+
+    <div class="box">
+        You wake up in your room.<br><br>
+        It was just a dream…<br><br>
+        Until you see it.<br><br>
+        <strong>The Shadow Box.</strong>
+    </div>
+
+    <button onclick="whisper()">Open the Box</button>
+</section>
+
+<footer>
+    <p>“You stayed too long...”</p>
+</footer>
+
+<script>
+    // Fade-in on scroll
+    const elements = document.querySelectorAll('.fade-in');
+
+    function showOnScroll() {
+        const triggerBottom = window.innerHeight * 0.85;
+
+        elements.forEach(el => {
+            const boxTop = el.getBoundingClientRect().top;
+
+            if (boxTop < triggerBottom) {
+                el.classList.add('show');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', showOnScroll);
+    showOnScroll();
+
+    // Whisper button effect
+    function whisper() {
+        alert("You stayed too long...");
+        document.body.style.background = "black";
+    }
+</script>
+
+</body>
+</html>
